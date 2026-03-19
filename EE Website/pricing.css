@@ -1,0 +1,169 @@
+/* ═══════════════════════════════════════
+   ROOT VARIABLES — Theme Colors
+═══════════════════════════════════════ */
+:root {
+  --ink: #0d0d0d;
+  --cream: #f5f0e8;
+  --gold: #c9a96e;
+  --muted: #7a7060;
+  --border: rgba(201,169,110,0.2);
+}
+
+/* ─── RESET ─── */
+body {
+  margin: 0;
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* ─── HEADER ─── */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Logo styling */
+header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+header h1 span {
+  color: var(--gold);
+}
+
+/* Nav links */
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+nav a:hover {
+  color: var(--cream);
+}
+
+/* ─── PRICING SECTION ─── */
+.pricing {
+  padding: 10px 40px;
+  text-align: center;
+}
+
+/* Title */
+.pricing h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--gold);
+}
+
+/* Subtitle */
+.pricing p {
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+/* ─── TABLE ─── */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table header */
+.pricing-table thead {
+  background: rgba(201,169,110,0.1);
+}
+
+/* Header cells */
+.pricing-table th {
+  padding: 15px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+/* Table cells */
+.pricing-table td {
+  padding: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Alternating rows (IMPORTANT PART) */
+.pricing-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.03);
+}
+
+/* Hover effect */
+.pricing-table tbody tr:hover {
+  background: rgba(201,169,110,0.08);
+}
+
+/* Price column styling */
+.pricing-table td:nth-child(3) {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+/* Book button */
+.pricing-table a {
+  padding: 6px 14px;
+  background: var(--gold);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+
+/* Button hover */
+.pricing-table a:hover {
+  background: #e0c28a;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+/* ─── NAV ─── */
+nav ul {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+nav ul li a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+nav ul li a:hover               { color: var(--cream); }
+nav ul li a:hover::after        { transform: scaleX(1); }
