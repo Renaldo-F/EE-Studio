@@ -9,7 +9,7 @@
   --border: rgba(201,169,110,0.2);
 }
 
-/* ─── RESET ─── */
+/* ─── BODY ─── */
 body {
   margin: 0;
   font-family: 'Instrument Sans', sans-serif;
@@ -26,7 +26,6 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
-/* Logo styling */
 header h1 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
@@ -36,7 +35,7 @@ header h1 span {
   color: var(--gold);
 }
 
-/* Nav links */
+/* NAV */
 nav ul {
   display: flex;
   gap: 20px;
@@ -55,19 +54,16 @@ nav a:hover {
 
 /* ─── PRICING SECTION ─── */
 .pricing {
-  padding: 10px 40px;
+  padding: 60px 40px;
   text-align: center;
 }
 
-/* Title */
 .pricing h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.5rem;
-  margin-bottom: 10px;
   color: var(--gold);
 }
 
-/* Subtitle */
 .pricing p {
   color: var(--muted);
   margin-bottom: 30px;
@@ -79,57 +75,56 @@ nav a:hover {
   border-collapse: collapse;
 }
 
-/* Table header */
-.pricing-table thead {
+/* All cells */
+.pricing-table th,
+.pricing-table td {
+  border: 1px solid var(--gold);
+  padding: 12px;
+  text-align: left;
+}
+
+/* CATEGORY HEADER (top) */
+.category th {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
   background: rgba(201,169,110,0.1);
 }
 
-/* Header cells */
-.pricing-table th {
-  padding: 15px;
+/* COLUMN HEADERS */
+.pricing-table thead tr:nth-child(2) th {
   text-transform: uppercase;
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
   color: var(--gold);
 }
 
-/* Table cells */
-.pricing-table td {
-  padding: 15px;
-  border-bottom: 1px solid var(--border);
+/* CATEGORY ROWS */
+.category-row td {
+  text-align: center;
+  font-weight: bold;
+  color: var(--gold);
+  background: rgba(201,169,110,0.08);
 }
 
-/* Alternating rows (IMPORTANT PART) */
+/* ALTERNATING ROWS */
 .pricing-table tbody tr:nth-child(even) {
   background: rgba(255,255,255,0.03);
 }
 
-/* Hover effect */
+/* HOVER EFFECT */
 .pricing-table tbody tr:hover {
   background: rgba(201,169,110,0.08);
 }
 
-/* Price column styling */
-.pricing-table td:nth-child(3) {
-  color: var(--gold);
+/* PRICE COLUMN */
+.pricing-table td:last-child {
+  text-align: right;
   font-weight: bold;
+  color: var(--gold);
 }
 
-/* Book button */
-.pricing-table a {
-  padding: 6px 14px;
-  background: var(--gold);
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 0.7rem;
-}
-
-/* Button hover */
-.pricing-table a:hover {
-  background: #e0c28a;
-}
-
-/* ─── FOOTER ─── */
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
@@ -167,3 +162,4 @@ nav ul li a::after {
 
 nav ul li a:hover               { color: var(--cream); }
 nav ul li a:hover::after        { transform: scaleX(1); }
+
