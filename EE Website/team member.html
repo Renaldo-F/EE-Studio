@@ -3,24 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Team | Edge & Elegance</title>
-
+  
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Instrument+Sans&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="team member.css">
+  <link href="https://fonts.googleapis.com" rel="stylesheet">
+  
+  <!-- Unified CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ═══════════════════════════════════════
-     HEADER — Same Navbar
-═══════════════════════════════════════ -->
+<!-- PRIMARY NAVIGATION -->
 <header>
   <h1>Edge <span>&amp;</span> Elegance</h1>
-
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -28,72 +24,73 @@
       <li><a href="#">Reviews</a></li>
       <li><a href="#">Booking</a></li>
       <li><a href="#">Catalog</a></li>
-      <li><a href="team member.html">Team Member</a></li>
+      <li><a href="team member.html">Team Members</a></li>
     </ul>
   </nav>
 </header>
 
+<main id="team-main">
+  <section id="team-section">
+    
+    <!-- HEADER (replaces div) -->
+    <header class="section-header">
+      <h2 id="team-title">Meet Our Team</h2>
+      <p id="team-subtitle">Professionals dedicated to style, precision, and excellence.</p>
+    </header>
 
-<!-- ═══════════════════════════════════════
-     MAIN — Team Section
-═══════════════════════════════════════ -->
-<main>
-
-  <section class="team">
-
-    <!-- Page Title -->
-    <h2>Meet Our Team</h2>
-    <p>Professionals dedicated to style, precision, and excellence.</p>
-
-    <!-- Grid -->
-    <div class="team-grid">
+    <!-- TEAM GRID -->
+    <section id="team-grid">
 
       <!-- MEMBER 1 -->
-      <div class="card">
-        <img src="images/frazer.jpeg" alt="Renaldo Frazer">
-
+      <article class="team-card">
+        <figure>
+          <img src="images/frazer.jpeg" alt="Renaldo Frazer - Project Manager">
+        </figure>
         <h3>Renaldo Frazer</h3>
         <p class="role">Project Manager</p>
-        <p>Coordinates tasks and ensures deadlines are met efficiently.</p>
-      </div>
+        <p class="description">Coordinates tasks and ensures deadlines are met efficiently.</p>
+      </article>
 
       <!-- MEMBER 2 -->
-      <div class="card">
-        <img src="images/Deer.jpeg" alt="Denicia Deer">
-
+      <article class="team-card">
+        <figure>
+          <img src="images/Deer.jpeg" alt="Denicia Deer - UI/UX Designer">
+        </figure>
         <h3>Denicia Deer</h3>
         <p class="role">UI/UX Designer</p>
-        <p>Designs layouts and enhances user experience.</p>
-      </div>
+        <p class="description">Designs layouts and enhances user experience.</p>
+      </article>
 
       <!-- MEMBER 3 -->
-      <div class="card">
-        <img src="images/Shalini.jpeg" alt="Shalini Webb">
-
+      <article class="team-card">
+        <figure>
+          <img src="images/Shalini.jpeg" alt="Shalini Webb - Backend Developer">
+        </figure>
         <h3>Shalini Webb</h3>
         <p class="role">Backend Developer</p>
-        <p>Handles system logic and ensures smooth functionality.</p>
-      </div>
+        <p class="description">Handles system logic and ensures smooth functionality.</p>
+      </article>
 
       <!-- MEMBER 4 -->
-      <div class="card">
-        <img src="images/Nikali.jpeg" alt="Nikali Jacobs">
-
+      <article class="team-card">
+        <figure>
+          <img src="images/Nikali.jpeg" alt="Nikali Jacobs - Backend Developer">
+        </figure>
         <h3>Nikali Jacobs</h3>
         <p class="role">Backend Developer</p>
-        <p>Supports backend systems and improves performance.</p>
-      </div>
+        <p class="description">Supports backend systems and improves performance.</p>
+      </article>
 
-    </div>
-
+    </section>
   </section>
-
 </main>
 
+<footer>
+  <small>&copy; 2026 Edge & Elegance Beauty & Barber Studio</small>
+</footer>
 
-<!-- ═══════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════ -->
+</body>
+</html>
 <footer>
   <small>&copy; 2026 Edge & Elegance Beauty & Barber Studio</small>
 </footer>
