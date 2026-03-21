@@ -426,3 +426,206 @@ footer {
   main > section:first-of-type > article              { padding: 40px 28px; }
   main > section:first-of-type > article h2           { font-size: 2.8rem; }
 }
+/* ═══════════════════════════════════════
+  PRICING + TEAM PAGES
+   ═══════════════════════════════════════ */
+
+
+/* ======================================
+   NAVBAR FIX
+   ====================================== */
+
+/* Keep ONLY main header fixed */
+body > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+/* Prevent section headers from acting like navbar */
+#pricing-section header,
+#team-section header,
+.section-header {
+  position: static !important;
+  height: auto !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-bottom: 40px;
+  text-align: center !important;
+  display: block;
+  width: 100%;
+}
+
+/* Push content below navbar */
+#pricing-main,
+#team-main {
+  padding-top: 110px;
+}
+
+
+/* ======================================
+   PRICING PAGE
+   ====================================== */
+
+#pricing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  text-align: center;
+}
+
+/* Titles centered */
+#pricing-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#pricing-subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* TABLE CENTERED */
+#pricing-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  order: 2;
+}
+
+/* Visible columns */
+#pricing-table th,
+#pricing-table td {
+  border: 1px solid var(--border);
+  padding: 14px;
+  text-align: center;
+}
+
+/* Header row */
+#pricing-table thead th {
+  background: rgba(201, 169, 110, 0.10);
+  color: var(--gold);
+}
+
+/* Category rows */
+.category-header th {
+  background: rgba(201, 169, 110, 0.20);
+  color: var(--gold);
+}
+
+/* Alternating rows */
+#pricing-table tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+
+/* ======================================
+   TEAM PAGE
+   ====================================== */
+
+#team-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  text-align: center;
+}
+
+/* Titles centered */
+#team-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#team-subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* GRID — FORCE ACROSS */
+#team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 🔥 4 across */
+  gap: 25px;
+  width: 100%;
+  order: 2;
+}
+
+/* CARD */
+.team-card {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px;
+  text-align: center;
+}
+
+/* IMAGE */
+.team-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.team-card h3 {
+  color: var(--cream);
+  margin-bottom: 5px;
+}
+
+.role {
+  color: var(--gold);
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+
+/* ======================================
+   RESPONSIVE
+   ====================================== */
+
+@media (max-width: 1100px) {
+  #team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  #team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #pricing-title,
+  #team-title {
+    font-size: 2rem;
+  }
+}
