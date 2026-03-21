@@ -3,169 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Pricing | Edge & Elegance</title>
-
+  
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Instrument+Sans&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com" rel="stylesheet">
+  
   <!-- CSS -->
-  <link rel="stylesheet" href="pricing.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ═══════════════════════════════════════
-     HEADER — Navigation
-═══════════════════════════════════════ -->
 <header>
   <h1>Edge <span>&amp;</span> Elegance</h1>
-
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="#">Reviews</a></li>
       <li><a href="#">Booking</a></li>
-      <li><a href="team.html">Team</a></li>
+      <li><a href="#">Catalog</a></li>
+      <li><a href="team member.html">Team Members</a></li>
     </ul>
   </nav>
 </header>
 
+<main id="pricing-main">
+  <section id="pricing-section">
 
-<!-- ═══════════════════════════════════════
-     MAIN — Pricing Table
-═══════════════════════════════════════ -->
-<main>
+    <!-- HEADER (replaces div) -->
+    <header>
+      <h2 id="pricing-title">Our Price List</h2>
+      <p id="pricing-subtitle">Professional grooming and beauty services.</p>
+    </header>
 
-  <section class="pricing">
-
-    <!-- Title -->
-    <h2>Our Price List</h2>
-    <p>Explore our professional services and pricing below.</p>
-
-    <table class="pricing-table">
+    <!-- TABLE -->
+    <table id="pricing-table">
 
       <thead>
-
-        <!-- Grooming -->
-        <tr class="category">
-          <th colspan="4">Grooming Services</th>
-        </tr>
         <tr>
           <th>Service</th>
-          <th>Description</th>
           <th>Duration</th>
           <th>Price</th>
         </tr>
-
       </thead>
 
+      <!-- Grooming -->
       <tbody>
-
-        <!-- Grooming Services -->
+        <tr class="category-header">
+          <th colspan="3">Grooming Services</th>
+        </tr>
         <tr>
           <td>Haircut</td>
-          <td>Professional haircut and styling</td>
           <td>45 mins</td>
           <td>$1,000</td>
         </tr>
-
         <tr>
           <td>Beard Trim</td>
-          <td>Precision beard shaping and grooming</td>
           <td>30 mins</td>
           <td>$800</td>
         </tr>
-
         <tr>
           <td>Hair Wash</td>
-          <td>Deep cleansing and conditioning</td>
           <td>20 mins</td>
           <td>$500</td>
         </tr>
+      </tbody>
 
-        <!-- Braiding -->
-        <tr class="category">
-          <th colspan="4">Braiding Services</th>
+      <!-- Braiding -->
+      <tbody>
+        <tr class="category-header">
+          <th colspan="3">Braiding Services</th>
         </tr>
-        <tr>
-          <th>Service</th>
-          <th>Description</th>
-          <th>Duration</th>
-          <th>Price</th>
-        </tr>
-
         <tr>
           <td>Box Braids</td>
-          <td>Full head protective braiding style</td>
           <td>3–4 hrs</td>
           <td>$6,000</td>
         </tr>
-
         <tr>
           <td>Cornrows</td>
-          <td>Traditional cornrow braiding</td>
           <td>2 hrs</td>
           <td>$4,000</td>
         </tr>
+      </tbody>
 
-        <!-- Nail Care -->
-        <tr class="category">
-          <th colspan="4">Nail Care Services</th>
+      <!-- Nail Care -->
+      <tbody>
+        <tr class="category-header">
+          <th colspan="3">Nail Care Services</th>
         </tr>
-        <tr>
-          <th>Service</th>
-          <th>Description</th>
-          <th>Duration</th>
-          <th>Price</th>
-        </tr>
-
         <tr>
           <td>Manicure</td>
-          <td>Nail shaping, cuticle care and polish</td>
           <td>1 hr</td>
           <td>$3,000</td>
         </tr>
-
         <tr>
           <td>Pedicure</td>
-          <td>Foot treatment and polish</td>
           <td>1 hr</td>
           <td>$4,000</td>
         </tr>
-
-        <!-- Hair Treatment -->
-        <tr class="category">
-          <th colspan="4">Hair Treatment Services</th>
-        </tr>
-        <tr>
-          <th>Service</th>
-          <th>Description</th>
-          <th>Duration</th>
-          <th>Price</th>
-        </tr>
-
-        <tr>
-          <td>Deep Conditioning</td>
-          <td>Restorative hair treatment</td>
-          <td>1 hr</td>
-          <td>$5,000</td>
-        </tr>
-
       </tbody>
 
     </table>
 
   </section>
-
 </main>
 
-
-<!-- ═══════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════ -->
 <footer>
+  <small>&copy; 2026 Edge & Elegance Beauty & Barber Studio</small>
+</footer>
+
+</body>
+</html>
   <small>&copy; 2026 Edge & Elegance Beauty & Barber Studio</small>
 </footer>
 
