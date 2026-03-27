@@ -1,0 +1,522 @@
+/* ═══════════════════════════════════════════════
+   Edge & Elegance Beauty & Barber Studio
+   team.css — Team Members Page Styles
+   ═══════════════════════════════════════════════ */
+
+/* ─── RESET & VARIABLES ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink:    #0d0d0d;
+  --cream:  #f5f0e8;
+  --gold:   #c9a96e;
+  --muted:  #7a7060;
+  --border: rgba(201, 169, 110, 0.25);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--ink);
+  color: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── HEADER ─── */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 68px;
+  background: rgba(13, 13, 13, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  animation: fadeDown 0.8s ease both;
+}
+
+header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  line-height: 1;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header h1 span { color: var(--gold); }
+
+/* ─── NAV ─── */
+nav ul {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+nav ul li a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+nav ul li a:hover               { color: var(--cream); }
+nav ul li a:hover::after        { transform: scaleX(1); }
+nav ul li a[aria-current="page"]{ color: var(--gold); }
+nav ul li a[aria-current="page"]::after { transform: scaleX(1); }
+
+/* ─── HAMBURGER (mobile) ─── */
+#menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+
+#menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  transform-origin: center;
+}
+
+#menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+#menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── MAIN ─── */
+main {
+  padding-top: 68px;
+}
+
+/* ─── PAGE HERO BANNER ─── */
+main > section.page-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* Subtle gold radial glow */
+main > section.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(201,169,110,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+main > section.page-hero > small {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+main > section.page-hero > small::before,
+main > section.page-hero > small::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  display: inline-block;
+}
+
+main > section.page-hero h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 18px;
+}
+
+main > section.page-hero h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+main > section.page-hero > p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.8;
+}
+
+/* ─── TEAM SECTION ─── */
+main > section.team-section {
+  padding: 72px 48px 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ─── TEAM TABLE ─── */
+table.team-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Caption acts as section heading */
+table.team-table caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding-bottom: 24px;
+  caption-side: top;
+}
+
+/* Table header row */
+table.team-table thead th {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+table.team-table thead th:first-child { width: 220px; }
+
+/* Body rows */
+table.team-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+table.team-table tbody tr:hover {
+  background: rgba(201, 169, 110, 0.04);
+}
+
+table.team-table tbody td {
+  padding: 40px 24px 40px 0;
+  vertical-align: top;
+}
+
+table.team-table tbody td:last-child {
+  padding-right: 0;
+}
+
+/* ── Photo cell ── */
+td.member-photo {
+  width: 180px;
+  padding-right: 40px;
+}
+
+td.member-photo figure {
+  margin: 0;
+  position: relative;
+}
+
+td.member-photo figure img {
+  width: 160px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(15%) contrast(1.05);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+td.member-photo figure:hover img {
+  filter: grayscale(0%) contrast(1.1);
+  transform: scale(1.03);
+}
+
+/* Gold corner accent */
+td.member-photo figure::before {
+  content: '';
+  position: absolute;
+  top: -6px; left: -6px;
+  width: 32px; height: 32px;
+  border-top: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+  pointer-events: none;
+  transition: width 0.3s, height 0.3s;
+}
+
+td.member-photo figure:hover::before {
+  width: 48px;
+  height: 48px;
+}
+
+td.member-photo figcaption {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ── Name cell ── */
+td.member-name {
+  width: 200px;
+}
+
+td.member-name h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+td.member-name > p {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── Role cell ── */
+td.member-role {
+  width: 140px;
+}
+
+td.member-role p {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── Bio cell ── */
+td.member-bio p {
+  font-size: 0.88rem;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 440px;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  text-align: center;
+  padding: 32px 48px;
+  border-top: 1px solid var(--border);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ─── KEYFRAMES ─── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered row reveal */
+table.team-table tbody tr {
+  animation: fadeUp 0.6s ease both;
+}
+table.team-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+table.team-table tbody tr:nth-child(2) { animation-delay: 0.22s; }
+table.team-table tbody tr:nth-child(3) { animation-delay: 0.34s; }
+table.team-table tbody tr:nth-child(4) { animation-delay: 0.46s; }
+
+/* ═══════════════════════════════════════════════
+   TABLET — 1024px and below
+═══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  header { padding: 0 32px; }
+  main > section.team-section { padding: 60px 32px 80px; }
+
+  td.member-role { display: none; } /* collapse role col on tablet */
+}
+
+/* ═══════════════════════════════════════════════
+   MOBILE — 768px and below
+═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  header { padding: 0 20px; height: 60px; }
+  header h1 { font-size: 1.15rem; }
+  main { padding-top: 60px; }
+
+  /* Hamburger visible */
+  #menu-toggle { display: flex; }
+
+  /* Fullscreen nav overlay */
+  #nav-list {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(13, 13, 13, 0.97);
+    backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    list-style: none;
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  #nav-list.open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  #nav-list li a {
+    font-size: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--cream);
+    text-transform: none;
+  }
+
+  #nav-list li a::after { display: none; }
+  #nav-list li a:hover  { color: var(--gold); }
+
+  /* Team section full width */
+  main > section.team-section { padding: 40px 20px 64px; }
+
+  /* Stack table as cards */
+  table.team-table,
+  table.team-table thead,
+  table.team-table tbody,
+  table.team-table tr,
+  table.team-table th,
+  table.team-table td {
+    display: block;
+    width: 100%;
+  }
+
+  table.team-table thead { display: none; } /* hide column headers */
+
+  table.team-table tbody tr {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin-bottom: 32px;
+    padding: 28px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 24px;
+  }
+
+  td.member-photo {
+    width: auto;
+    grid-row: 1 / 3;
+    padding: 0;
+  }
+
+  td.member-photo figure img {
+    width: 100px;
+    height: 115px;
+  }
+
+  td.member-name {
+    width: auto;
+    padding: 0;
+    align-self: center;
+  }
+
+  td.member-name h3 { font-size: 1.3rem; }
+
+  td.member-role {
+    display: block;
+    padding: 6px 0 0 0;
+  }
+
+  td.member-bio {
+    grid-column: 1 / -1;
+    padding: 20px 0 0 0;
+  }
+
+  td.member-bio p { font-size: 0.85rem; max-width: 100%; }
+
+  /* Page hero */
+  main > section.page-hero { padding: 52px 24px 40px; }
+  main > section.page-hero h2 { font-size: 2.4rem; }
+
+  footer { padding: 24px 20px; font-size: 0.65rem; }
+}
+
+/* ═══════════════════════════════════════════════
+   SMALL PHONES — 400px and below
+═══════════════════════════════════════════════ */
+@media (max-width: 400px) {
+  header h1 { font-size: 1rem; }
+  main > section.page-hero h2 { font-size: 2rem; }
+
+  table.team-table tbody tr {
+    grid-template-columns: 1fr;
+  }
+
+  td.member-photo {
+    grid-row: auto;
+    margin-bottom: 16px;
+  }
+
+  td.member-photo figure img {
+    width: 100%;
+    height: 200px;
+  }
+}
