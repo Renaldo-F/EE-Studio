@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | Edge & Elegance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --ink:    #0d0d0d;
+    --cream:  #f5f0e8;
+    --gold:   #c9a96e;
+    --muted:  #7a7060;
+    --border: rgba(201, 169, 110, 0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--ink);
+    color: var(--cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    pointer-events: none;
+  }
+
+  /* ─── HEADER ─── */
+  body > header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 68px;
+    background: rgba(13, 13, 13, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    animation: fadeDown 0.8s ease both;
+  }
+
+  body > header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  body > header h1 span { color: var(--gold); }
+
+  /* ─── MAIN ─── */
+  main {
+    padding-top: 110px;
+    padding-bottom: 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── FAQ CONTAINER ─── */
+  .faq-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+  }
+
+  /* ─── PAGE EYEBROW ─── */
+  .faq-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    animation: revealRight 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  }
+
+  .faq-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    display: inline-block;
+  }
+
+  /* ─── PAGE TITLE ─── */
+  .faq-container > h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 12px;
+    animation: revealRight 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+
+  .faq-container > h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .faq-subtitle {
+    font-size: 0.88rem;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 52px;
+    font-weight: 300;
+    line-height: 1.7;
+    animation: revealRight 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  }
+
+  /* ─── FAQ LIST ─── */
+  #faq-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 64px;
+    animation: fadeIn 0.8s ease 0.5s both;
+  }
+
+  /* ─── FAQ ITEM ─── */
+  .faq-item {
+    border-top: 1px solid var(--border);
+    transition: background 0.3s ease;
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 4px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    user-select: none;
+    transition: color 0.3s ease;
+    gap: 20px;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary:hover {
+    color: var(--gold);
+  }
+
+  /* Animated plus/minus icon */
+  .faq-item summary::after {
+    content: '';
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background-image:
+      linear-gradient(var(--gold), var(--gold)),
+      linear-gradient(var(--gold), var(--gold));
+    background-size: 8px 1px, 1px 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.35s ease, border-color 0.3s ease;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+    border-color: var(--gold);
+  }
+
+  .faq-item[open] summary {
+    color: var(--gold);
+  }
+
+  /* Answer body */
+  .faq-item > p,
+  .faq-item > div.faq-answer {
+    padding: 0 4px 22px;
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 600px;
+    animation: answerReveal 0.35s ease both;
+  }
+
+  @keyframes answerReveal {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── ADD FAQ SECTION ─── */
+  .add-faq {
+    width: 100%;
+    border: 1px solid var(--border);
+    padding: 40px;
+    background: rgba(201, 169, 110, 0.03);
+    animation: fadeIn 0.8s ease 0.7s both;
+    position: relative;
+  }
+
+  .add-faq::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 40px;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .add-faq h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  .add-faq > p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+  }
+
+  #faq-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #faq-form label {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: -8px;
+  }
+
+  #faq-form input[type="text"] {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    color: var(--cream);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  #faq-form input[type="text"]::placeholder {
+    color: rgba(122, 112, 96, 0.5);
+  }
+
+  #faq-form input[type="text"]:focus {
+    border-color: var(--gold);
+    background: rgba(201, 169, 110, 0.04);
+  }
+
+  #faq-form button[type="submit"] {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 34px;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.35s ease;
+    margin-top: 8px;
+  }
+
+  #faq-form button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--cream);
+    transform: translateX(-101%);
+    transition: transform 0.35s ease;
+  }
+
+  #faq-form button[type="submit"]:hover::before { transform: translateX(0); }
+
+  #faq-form button[type="submit"] span {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── NEWLY ADDED FAQ ITEMS ─── */
+  .faq-item.new-item {
+    animation: fadeIn 0.5s ease both;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 32px 48px;
+    border-top: 1px solid var(--border);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── KEYFRAMES ─── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes revealRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    body > header { padding: 0 24px; }
+    .faq-container { padding: 0 16px 40px; }
+    .add-faq { padding: 28px 24px; }
+    #faq-form button[type="submit"] { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Edge <span>&</span> Elegance</h1>
+</header>
+
+<main>
+  <section class="faq-container">
+
+    <p class="faq-eyebrow">Support</p>
+    <h2>Frequently Asked <em>Questions</em></h2>
+    <p class="faq-subtitle">Everything you need to know about our studio, services, and booking process.</p>
+
+    <!-- Accordion FAQ Items -->
+    <section id="faq-list">
+
+      <details class="faq-item">
+        <summary>What services do you offer?</summary>
+        <p>We offer haircuts, beard grooming, braiding, nail care, and hair treatments — each crafted with precision and care by our expert team.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you accept walk-ins?</summary>
+        <p>Yes, but we recommend booking online to avoid waiting times. Walk-ins are welcome based on stylist availability.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I book online?</summary>
+        <p>Yes, our platform allows you to book appointments quickly and easily. Select your preferred service, date, and time in just a few steps.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What are your opening hours?</summary>
+        <p>We are open Monday to Saturday, 9:00 AM – 7:00 PM. We are closed on Sundays and public holidays.</p>
+      </details>
+
+    </section>
+
+    <!-- Add FAQ -->
+    <section class="add-faq">
+      <h3>Submit a Question</h3>
+      <p>Don't see your question? Send it our way and we'll get back to you.</p>
+      <form id="faq-form">
+        <label for="question">Your Question</label>
+        <input type="text" id="question" required placeholder="e.g. Do you offer gift cards?">
+        <button type="submit"><span>Submit Question</span></button>
+      </form>
+    </section>
+
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Edge &amp; Elegance Beauty &amp; Barber Studio</p>
+</footer>
+
+<script>
+  const form = document.getElementById('faq-form');
+  const faqList = document.getElementById('faq-list');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const question = document.getElementById('question').value.trim();
+    if (!question) return;
+
+    const answer = "Thank you for your question — our team will provide an answer shortly.";
+
+    // Create elements correctly
+    const details = document.createElement('details');
+    details.classList.add('faq-item', 'new-item');
+
+    const summary = document.createElement('summary');
+    summary.textContent = question;
+
+    const p = document.createElement('p');
+    p.textContent = answer;
+
+    details.appendChild(summary);
+    details.appendChild(p);
+
+    faqList.appendChild(details);
+
+    // Animate it open briefly to show it was added
+    details.open = true;
+
+    form.reset();
+
+    // Smooth scroll to new item
+    details.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+
+</body>
+</html>
